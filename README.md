@@ -1,16 +1,14 @@
-# flutter_application_1
-
-A new Flutter project.
-
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+# Examen 
+Ramo: COMPUTACIÓN MÓVIL
+Profesor: Rene Alejandro Galarce 
+Nombre: Elias Ignacio Muñoz Gonzalez 
+# Resumen 
+Esta aplicacion fue desarrollada para un examen, tiene un acceso de login que se autentifica desde firebase, los datos como los productos, categorias y proveedores son consumidos desde una api. 
+# Tecnologias utilizadas 
+Lenguaje: Dart
+Framework: Flutter 
+Dependencias: 
+  flutter:
+  sdk: flutter
+  http: ^1.2.2
+  provider: ^6.1.2

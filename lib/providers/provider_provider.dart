@@ -1,0 +1,1 @@
+export 'package:flutter_application_1/services/provider_service.dart';

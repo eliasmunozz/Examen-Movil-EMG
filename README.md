@@ -13,3 +13,10 @@ Esta aplicación fue desarrollada como parte del examen del ramo Computación M�
   - `flutter` (SDK)  
   - `http: ^1.2.2`  
   - `provider: ^6.1.2`  
+
+## Capturas de pantalla  
+
+![Captura de pantalla 1](assets/captura1.png)  
+![Captura de pantalla 2](assets/captura2.png)  
+![Captura de pantalla 3](assets/captura3.png)  
+

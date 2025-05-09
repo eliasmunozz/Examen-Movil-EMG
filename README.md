@@ -16,7 +16,9 @@ Esta aplicación fue desarrollada como parte del examen del ramo Computación M�
 
 ## Capturas de pantalla  
 
-![Captura de pantalla 1](assets/captura1.png)  
-![Captura de pantalla 2](assets/captura2.png)  
-![Captura de pantalla 3](assets/captura3.png)  
+<div style="display: flex; gap: 10px;">
+  <img src="assets/captura1.png" alt="Captura 1" width="30%">
+  <img src="assets/captura2.png" alt="Captura 2" width="30%">
+  <img src="assets/captura3.png" alt="Captura 3" width="30%">
+</div>
 

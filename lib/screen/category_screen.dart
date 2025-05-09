@@ -88,6 +88,7 @@ class CategoryScreen extends StatelessWidget {
               },
             ),
       floatingActionButton: FloatingActionButton(
+        foregroundColor: Colors.white,
         onPressed: () => _editDialog(context, categoryService, Category(categoryId: 0, categoryName: "")),
         child: const Icon(Icons.add),
       ),
@@ -171,7 +172,3 @@ class CategoryScreen extends StatelessWidget {
     );
   }
 }
-
-
-
-

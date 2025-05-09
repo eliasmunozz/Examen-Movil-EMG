@@ -22,7 +22,7 @@ class ProductCard extends StatelessWidget {
           children: [
             Row(
               children: [
-                Container(
+                SizedBox(
                   width: 100,
                   height: 100,
                   child: _BackGroundImage(url: product.productImage),

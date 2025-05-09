@@ -16,6 +16,7 @@ class MyTheme {
     ),
     floatingActionButtonTheme: const FloatingActionButtonThemeData(
       backgroundColor: primary,
+      foregroundColor: Colors.white
     ),
   );
 }

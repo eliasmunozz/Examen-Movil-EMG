@@ -91,6 +91,7 @@ class ProviderScreen extends StatelessWidget {
               },
             ),
       floatingActionButton: FloatingActionButton(
+        foregroundColor: Colors.white,
         onPressed: () => _editDialog(
           context,
           service,

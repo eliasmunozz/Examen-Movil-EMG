@@ -19,7 +19,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
               builder: (context) => IconButton(
                 icon: const Icon(Icons.menu),
                 onPressed: () {
-                  Scaffold.of(context).openDrawer(); // Abre el Drawer
+                  Scaffold.of(context).openDrawer();
                 },
               ),
             )
@@ -27,9 +27,9 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
               icon: const Icon(Icons.arrow_back),
               onPressed: () {
                 if (title == "Listado de productos") {
-                  Navigator.pushReplacementNamed(context, 'home'); // Redirige a Home
+                  Navigator.pushReplacementNamed(context, 'home');
                 } else {
-                  Navigator.pop(context); // Retrocede
+                  Navigator.pop(context);
                 }
               },
             ),

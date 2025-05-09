@@ -49,7 +49,7 @@ class _ListProductScreenState extends State<ListProductScreen> {
         ],
       ),
       floatingActionButton: FloatingActionButton(
-        child: const Icon(Icons.add),
+        foregroundColor: Colors.white,
         onPressed: () {
           Navigator.pushNamed(context, 'new_product').then((newProduct) {
             if (newProduct != null && newProduct is Listado) {
@@ -58,6 +58,7 @@ class _ListProductScreenState extends State<ListProductScreen> {
             }
           });
         },
+        child: const Icon(Icons.add),
       ),
     );
   }

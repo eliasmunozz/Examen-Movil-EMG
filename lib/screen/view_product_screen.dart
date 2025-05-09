@@ -137,8 +137,13 @@ class ViewProductScreen extends StatelessWidget {
                   }
                 },
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.red, 
+                  backgroundColor: Colors.red,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                  padding: const EdgeInsets.symmetric(vertical: 14),
                 ),
+                
                 child: const Text('Borrar Producto'),
               ),
             )

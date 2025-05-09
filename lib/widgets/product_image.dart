@@ -15,7 +15,7 @@ class ProductImage extends StatelessWidget {
         height: 400,
         child: ClipRRect(
           borderRadius: const BorderRadius.only(
-              topLeft: Radius.circular(45), topRight: Radius.circular(45)),
+              topLeft: Radius.circular(30), topRight: Radius.circular(30)),
           child: url == null
               ? const Image(
                   image: AssetImage('assets/no-image.png'),

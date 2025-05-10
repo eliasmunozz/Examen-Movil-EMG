@@ -20,11 +20,38 @@ class ProviderScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(title: const Text('Proveedores')),
       body: service.providers.isEmpty
-          ? const Center(
-              child: Text(
-                'No se pudieron cargar los proveedores.\nRevisa tu conexión o vuelve a intentar.',
-                textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 16, color: Colors.red),
+          ? Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  const Text(
+                    'No se pudieron cargar los proveedores.\nRevisa tu conexión o vuelve a intentar.',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(fontSize: 16, color: Colors.red),
+                  ),
+                  const SizedBox(height: 20),
+                  ElevatedButton.icon(
+                    onPressed: () async {
+                      try {
+                        await service.loadProviders();
+                        if (service.providers.isNotEmpty) {
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            const SnackBar(content: Text('Proveedores recargados correctamente')),
+                          );
+                        }
+                      } catch (e) {
+                        CustomNotification.show(
+                          context,
+                          message: 'Error al recargar: $e',
+                          backgroundColor: Colors.red,
+                          icon: Icons.error,
+                        );
+                      }
+                    },
+                    icon: const Icon(Icons.refresh),
+                    label: const Text('Reintentar'),
+                  ),
+                ],
               ),
             )
           : ListView.builder(

@@ -20,11 +20,38 @@ class CategoryScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(title: const Text('Categorías')),
       body: categoryService.categories.isEmpty
-          ? const Center(
-              child: Text(
-                'No se pudieron cargar las categorías.\nRevisa tu conexión o vuelve a intentar.',
-                textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 16, color: Colors.red),
+          ? Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  const Text(
+                    'No se pudieron cargar las categorías.\nRevisa tu conexión o vuelve a intentar.',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(fontSize: 16, color: Colors.red),
+                  ),
+                  const SizedBox(height: 20),
+                  ElevatedButton.icon(
+                    onPressed: () async {
+                      try {
+                        await categoryService.loadCategories();
+                        if (categoryService.categories.isNotEmpty) {
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            const SnackBar(content: Text('Categorías recargadas correctamente')),
+                          );
+                        }
+                      } catch (e) {
+                        CustomNotification.show(
+                          context,
+                          message: 'Error al recargar: $e',
+                          backgroundColor: Colors.red,
+                          icon: Icons.error,
+                        );
+                      }
+                    },
+                    icon: const Icon(Icons.refresh),
+                    label: const Text('Reintentar'),
+                  ),
+                ],
               ),
             )
           : ListView.builder(

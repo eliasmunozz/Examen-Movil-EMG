@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'dart:convert';
+import 'dart:io';
 import 'package:http/http.dart' as http;
 
 class AuthService extends ChangeNotifier {
@@ -10,16 +11,34 @@ class AuthService extends ChangeNotifier {
     final Map<String, dynamic> authData = {
       'email': email,
       'password': password,
+      'returnSecureToken': true,
     };
+
     final url = Uri.https(
-        _baseUrl, '/v1/accounts:signInWithPassword', {'key': _firebaseToken});
-    print(authData);
-    final response = await http.post(url, body: json.encode(authData));
-    final Map<String, dynamic> decodeResponse = json.decode(response.body);
-    if (decodeResponse.containsKey('idToken')) {
-      return null;
-    } else {
-      return decodeResponse['error']['message'];
+      _baseUrl,
+      '/v1/accounts:signInWithPassword',
+      {'key': _firebaseToken},
+    );
+
+    try {
+      final response = await http.post(
+        url,
+        body: json.encode(authData),
+        headers: {'Content-Type': 'application/json'},
+      );
+
+      final Map<String, dynamic> decodeResponse = json.decode(response.body);
+
+      if (decodeResponse.containsKey('idToken')) {
+        return null; // Login exitoso
+      } else {
+        // Firebase devuelve un mensaje de error
+        return decodeResponse['error']['message'] ?? 'Error desconocido';
+      }
+    } on SocketException {
+      return 'Sin conexión a internet';
+    } catch (e) {
+      return 'Error inesperado: ${e.toString()}';
     }
   }
 }
